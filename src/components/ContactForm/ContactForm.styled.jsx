@@ -5,7 +5,6 @@ export const Form = styled.form`
   min-height: 30vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 16px;
   padding: 32px;
@@ -18,6 +17,9 @@ export const Form = styled.form`
 `;
 
 export const Label = styled.label`
-  display: block;
+  width: 100%;
+  display: flex;
   font-weight: bold;
+  justify-content: space-between;
+  align-items: center;
 `;

@@ -1,14 +1,20 @@
 import PropTypes from 'prop-types';
 import { Input } from './InputItem.styled';
 
-export const InputItem = ({ name, placeholder }) => {
+export const InputItem = ({
+  type = 'text',
+  name,
+  placeholder,
+  pattern,
+  title,
+}) => {
   return (
     <Input
       placeholder={placeholder}
-      type="text"
+      type={type}
       name={name}
-      pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-      title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+      pattern={pattern}
+      title={title}
       required
     />
   );
@@ -17,4 +23,7 @@ export const InputItem = ({ name, placeholder }) => {
 InputItem.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
+  pattern: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  type: PropTypes.string,
 };

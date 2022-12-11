@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container } from './App.styled';
+import { Container, MainHeader, SubHeader } from './App.styled';
 import { ContactForm } from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
@@ -30,9 +30,9 @@ export class App extends React.Component {
   render() {
     return (
       <Container>
-        <h1>Phonebook</h1>
+        <MainHeader>Phonebook</MainHeader>
         <ContactForm onAddBtnClick={this.onAddBtnClick} />
-        <h2>Contacts</h2>
+        <SubHeader>Contacts</SubHeader>
         <Filter />
         <ContactList />
       </Container>

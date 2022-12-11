@@ -15,6 +15,12 @@ export class App extends React.Component {
     event.preventDefault();
     console.log('hello');
     console.log(ContactForm.children);
+
+    let contact = {
+      id: '',
+      name: '',
+    };
+    console.log(contact);
     // this.setState(prevState => ({
     //   bad: prevState.bad + 1,
     // }));

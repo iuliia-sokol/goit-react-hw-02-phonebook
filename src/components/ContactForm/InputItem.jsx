@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Input } from './InputItem.styled';
 
 export const InputItem = ({ name, placeholder }) => {
@@ -11,4 +12,9 @@ export const InputItem = ({ name, placeholder }) => {
       required
     />
   );
+};
+
+InputItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
 };

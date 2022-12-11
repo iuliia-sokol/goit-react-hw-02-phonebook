@@ -23,6 +23,5 @@ export const ContactForm = ({ onAddBtnClick }) => {
 };
 
 ContactForm.propTypes = {
-  //   options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   onAddBtnClick: PropTypes.func.isRequired,
 };

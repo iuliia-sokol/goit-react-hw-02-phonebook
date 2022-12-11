@@ -6,15 +6,17 @@ export const Btn = ({
   status,
   disabled = false,
   icon: Icon = null,
-
-  onClick,
+  type = 'button',
+  onClick = null,
+  onSubmit = null,
 }) => {
   return (
     <BtnElement
       status={status}
-      type="button"
+      type={type}
       disabled={disabled}
       onClick={onClick}
+      onSubmit={onSubmit}
     >
       {Icon && <Icon></Icon>}
       {text}
@@ -28,4 +30,6 @@ Btn.propTypes = {
   type: PropTypes.string,
   text: PropTypes.string.isRequired,
   status: PropTypes.string,
+  onClick: PropTypes.func,
+  onSubmit: PropTypes.func,
 };

@@ -7,9 +7,11 @@ export const InputItem = ({
   placeholder,
   pattern,
   title,
+  onChange,
 }) => {
   return (
     <Input
+      onChange={onChange}
       placeholder={placeholder}
       type={type}
       name={name}
@@ -26,4 +28,5 @@ InputItem.propTypes = {
   pattern: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   type: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
 };

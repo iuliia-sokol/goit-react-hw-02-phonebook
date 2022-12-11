@@ -4,12 +4,13 @@ import { Form, Label } from './ContactForm.styled';
 import { Btn } from '../Btn/Btn';
 import { InputItem } from './InputItem';
 
-export const ContactForm = ({ onAddBtnClick }) => {
+export const ContactForm = ({ onAddBtnClick, onInputChange }) => {
   return (
     <Form>
       <Label>
         Name
         <InputItem
+          onChange={onInputChange}
           name="name"
           placeholder="Enter contact`s name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -19,6 +20,7 @@ export const ContactForm = ({ onAddBtnClick }) => {
       <Label>
         Number
         <InputItem
+          onChange={onInputChange}
           type="tel"
           name="number"
           placeholder="Enter contact`s number"
@@ -31,7 +33,7 @@ export const ContactForm = ({ onAddBtnClick }) => {
         icon={MdPersonAddAlt1}
         status="add"
         text="Add contact"
-        onClick={onAddBtnClick}
+        onSubmit={onAddBtnClick}
       ></Btn>
     </Form>
   );
@@ -39,4 +41,5 @@ export const ContactForm = ({ onAddBtnClick }) => {
 
 ContactForm.propTypes = {
   onAddBtnClick: PropTypes.func.isRequired,
+  onInputChange: PropTypes.func.isRequired,
 };

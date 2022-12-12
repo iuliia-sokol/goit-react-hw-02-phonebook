@@ -27,9 +27,9 @@ export const InputItem = ({
 InputItem.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
-  pattern: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  pattern: PropTypes.string,
+  title: PropTypes.string,
   type: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+  value: PropTypes.string,
 };

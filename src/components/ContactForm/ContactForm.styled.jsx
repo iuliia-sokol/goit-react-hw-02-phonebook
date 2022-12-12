@@ -20,6 +20,7 @@ export const Label = styled.label`
   width: 100%;
   display: flex;
   font-weight: bold;
+  font-size: 24px;
   justify-content: space-between;
   align-items: center;
 `;

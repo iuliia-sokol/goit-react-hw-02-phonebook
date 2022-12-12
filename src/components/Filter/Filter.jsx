@@ -19,7 +19,7 @@ export const Filter = ({ value, onChange }) => {
           value={value}
           onChange={onChange}
           debounceTimeout={500}
-        ></DebounceInput>
+        />
       </Label>
     </FilterWrapper>
   );

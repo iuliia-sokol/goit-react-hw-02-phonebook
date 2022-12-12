@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const Form = styled.form`
   width: 30vw;
-  min-height: 30vh;
+  height: fit-content;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;

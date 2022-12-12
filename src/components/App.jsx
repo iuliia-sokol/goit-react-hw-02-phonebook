@@ -47,15 +47,32 @@ export class App extends React.Component {
     Notiflix.Notify.info(`${name} was successfully deleted from your contacts`);
   };
 
+  onFilterChange = event => {
+    this.setState({ filter: event.target.value });
+  };
+
+  filterContacts = () => {
+    const query = this.state.filter.toLocaleLowerCase();
+
+    const filteredContacts = this.state.contacts.filter(contact =>
+      contact.name.toLocaleLowerCase().includes(query)
+    );
+
+    if (filteredContacts.length === 0) {
+      Notiflix.Notify.warning('No contacts matching your request');
+    }
+    return filteredContacts;
+  };
+
   render() {
     return (
       <Container>
         <MainHeader>Phonebook</MainHeader>
         <ContactForm onAddBtnClick={this.onAddBtnClick} />
         <SubHeader>Contacts</SubHeader>
-        <Filter />
+        <Filter value={this.state.filter} onChange={this.onFilterChange} />
         <ContactList
-          contacts={this.state.contacts}
+          contacts={this.filterContacts()}
           onDeleteBtnClick={this.onDeleteBtnClick}
         />
       </Container>

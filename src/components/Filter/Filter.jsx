@@ -1,26 +1,31 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import { DebounceInput } from 'react-debounce-input';
+
 import { FilterWrapper } from './Filter.styled';
-import { InputItem } from '../ContactForm/InputItem';
+import css from './Filter.module.css';
+
 import { Label } from '../ContactForm/ContactForm.styled';
 
-export const Filter = () => {
+export const Filter = ({ value, onChange }) => {
   return (
     <FilterWrapper>
       <Label>
         Find contacts by name
-        <InputItem
-          // onChange={this.onInputChange}
-          // value={this.state.number}
+        <DebounceInput
+          className={css.debounceInput}
           type="text"
           name="filter"
           placeholder="Enter contact to search"
-        ></InputItem>
+          value={value}
+          onChange={onChange}
+          debounceTimeout={500}
+        ></DebounceInput>
       </Label>
     </FilterWrapper>
   );
 };
 
-// Filter.propTypes = {
-//   //   options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-//   //   onLeaveFeedback: PropTypes.arrayOf(PropTypes.func.isRequired).isRequired,
-// };
+Filter.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+};

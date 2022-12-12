@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const FilterWrapper = styled.div`
   min-width: 50vw;
   display: flex;
-  justify-content: center;
+  justify-content: stretch;
   align-items: center;
   font-size: 40px;
   color: #010101;

@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { FilterWrapper } from './Filter.styled';
 import { InputItem } from '../ContactForm/InputItem';
 import { Label } from '../ContactForm/ContactForm.styled';
@@ -20,7 +20,7 @@ export const Filter = () => {
   );
 };
 
-Filter.propTypes = {
-  //   options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  //   onLeaveFeedback: PropTypes.arrayOf(PropTypes.func.isRequired).isRequired,
-};
+// Filter.propTypes = {
+//   //   options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+//   //   onLeaveFeedback: PropTypes.arrayOf(PropTypes.func.isRequired).isRequired,
+// };

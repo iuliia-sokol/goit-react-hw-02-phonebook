@@ -14,7 +14,7 @@ export const ContactItem = ({ id, name, number, onDeleteBtnClick }) => {
         type="button"
         status="delete"
         text="Delete contact"
-        onClick={() => onDeleteBtnClick(id)}
+        onClick={() => onDeleteBtnClick(id, name)}
       ></Btn>
     </ListItem>
   );

@@ -40,10 +40,11 @@ export class App extends React.Component {
     }
   };
 
-  onDeleteBtnClick = id => {
+  onDeleteBtnClick = (id, name) => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
+    Notiflix.Notify.info(`${name} was successfully deleted from your contacts`);
   };
 
   render() {

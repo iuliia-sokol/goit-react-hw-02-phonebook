@@ -7,6 +7,15 @@ import { ContactForm } from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 
+const notifySettings = {
+  width: '380px',
+  position: 'right-top',
+  distance: '10px',
+  opacity: 1,
+  fontSize: '20px',
+  borderRadius: '12px',
+};
+
 export class App extends React.Component {
   state = {
     contacts: [
@@ -28,14 +37,18 @@ export class App extends React.Component {
     );
 
     if (includesName) {
-      return Notiflix.Notify.warning(`${name} is already in contacts`);
+      return Notiflix.Notify.warning(
+        `${name} is already in contacts`,
+        notifySettings
+      );
     } else {
       let contact = { id: nanoid(), name: name, number: number };
       this.setState(prevState => ({
         contacts: [...prevState.contacts, contact],
       }));
       Notiflix.Notify.success(
-        `${name} was successfully added to your contacts`
+        `${name} was successfully added to your contacts`,
+        notifySettings
       );
     }
   };
@@ -44,7 +57,10 @@ export class App extends React.Component {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
-    Notiflix.Notify.info(`${name} was successfully deleted from your contacts`);
+    Notiflix.Notify.info(
+      `${name} was successfully deleted from your contacts`,
+      notifySettings
+    );
   };
 
   onFilterChange = event => {
@@ -59,7 +75,10 @@ export class App extends React.Component {
     );
 
     if (filteredContacts.length === 0) {
-      Notiflix.Notify.warning('No contacts matching your request');
+      Notiflix.Notify.warning(
+        'No contacts matching your request',
+        notifySettings
+      );
     }
     return filteredContacts;
   };

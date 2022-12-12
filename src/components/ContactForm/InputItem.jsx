@@ -8,10 +8,12 @@ export const InputItem = ({
   pattern,
   title,
   onChange,
+  value,
 }) => {
   return (
     <Input
       onChange={onChange}
+      value={value}
       placeholder={placeholder}
       type={type}
       name={name}
@@ -29,4 +31,5 @@ InputItem.propTypes = {
   title: PropTypes.string.isRequired,
   type: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
 };

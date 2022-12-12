@@ -1,5 +1,6 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
+import Notiflix from 'notiflix';
 
 import { Container, MainHeader, SubHeader } from './App.styled';
 import { ContactForm } from './ContactForm/ContactForm';
@@ -19,26 +20,24 @@ export class App extends React.Component {
     number: '',
   };
 
-  onInputChange = event => {
-    const { name, value } = event.currentTarget;
-    this.setState({ [name]: value });
-  };
+  onAddBtnClick = FormData => {
+    const { name, number } = FormData;
 
-  onAddBtnClick = event => {
-    event.preventDefault();
-    console.log('hello');
+    const includesName = this.state.contacts.find(
+      contact => contact.name.toLocaleLowerCase() === name.toLocaleLowerCase()
+    );
 
-    let contact = { id: '', name: '', number: '' };
-
-    contact.id = nanoid();
-    contact.name = this.state.name;
-    contact.number = this.state.number;
-
-    console.log(contact);
-
-    this.setState(prevState => ({
-      contacts: [...prevState.contacts, contact],
-    }));
+    if (includesName) {
+      return Notiflix.Notify.warning(`${name} is already in contacts`);
+    } else {
+      let contact = { id: nanoid(), name: name, number: number };
+      this.setState(prevState => ({
+        contacts: [...prevState.contacts, contact],
+      }));
+      Notiflix.Notify.success(
+        `${name} was successfully added to your contacts`
+      );
+    }
   };
 
   onDeleteBtnClick = id => {
@@ -51,10 +50,7 @@ export class App extends React.Component {
     return (
       <Container>
         <MainHeader>Phonebook</MainHeader>
-        <ContactForm
-          onAddBtnClick={this.onAddBtnClick}
-          onInputChange={this.onInputChange}
-        />
+        <ContactForm onAddBtnClick={this.onAddBtnClick} />
         <SubHeader>Contacts</SubHeader>
         <Filter />
         <ContactList
